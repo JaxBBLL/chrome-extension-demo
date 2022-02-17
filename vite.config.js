@@ -4,7 +4,7 @@ import { resolve } from "path";
 
 export default defineConfig(({ command, mode }) => {
   return {
-    root: "src",
+    root: resolve(__dirname, "src"),
     resolve: {
       alias: {
         "@": resolve(__dirname, "src"),
@@ -22,7 +22,7 @@ export default defineConfig(({ command, mode }) => {
     build: {
       watch: mode == "dev" ? {} : false,
       rollupOptions: {
-        input: ["index.html", "background.js", "content.js"],
+        input: ["./src/index.html", "./src/background.js", "./src/content.js"],
         output: {
           chunkFileNames: "[name].[hash].js",
           assetFileNames: "[name].[hash].[ext]",
