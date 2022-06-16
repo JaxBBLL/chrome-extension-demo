@@ -1,19 +1,38 @@
 {
-  "name": "vite-demo",
+  "name": "gulp-simple",
   "version": "1.0.0",
-  "description": "",
-  "main": "vite.config.js",
-  "scripts": {
-    "start": "vite",
-    "dev": "vite build --mode dev",
-    "build": "vite build"
-  },
+  "description": "gulp simple",
   "keywords": [],
   "author": "JaxBBLL",
   "license": "ISC",
-  "dependencies": {},
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development gulp",
+    "build": "cross-env NODE_ENV=production gulp build"
+  },
   "devDependencies": {
-    "rollup-plugin-copy": "^3.4.0",
-    "vite": "^2.7.13"
+    "cross-env": "^7.0.3",
+    "del": "^6.1.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-connect": "^5.7.0",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-file-include": "^2.3.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-javascript-obfuscator": "^1.1.6",
+    "gulp-less": "^5.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-rename": "^2.0.0",
+    "http-proxy-middleware": "^2.0.6"
+  },
+  "engines": {
+    "node": ">= 8.11.1",
+    "npm": ">= 5.6.0"
+  },
+  "browserslist": [
+    "last 4 versions",
+    "Android >= 4.0"
+  ],
+  "dependencies": {
+    "through2": "^4.0.2"
   }
 }
