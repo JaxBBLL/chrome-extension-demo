@@ -1,10 +1,9 @@
-const oButton = document.createElement('button')
-oButton.classList.add('e-button')
-oButton.type = 'button'
-oButton.innerHTML = 'Hello'
-document.body.appendChild(oButton)
+const oWrap = document.createElement('div')
+oWrap.classList.add('e-container')
+oWrap.innerHTML = 'Hello'
+document.body.appendChild(oWrap)
 
-oButton.addEventListener('click', () => {
+oWrap.addEventListener('click', () => {
   chrome.runtime.sendMessage({ from: 'content', type: 'INJECT_START' })
-  Message.success('HHH')
+  Message.success('Message')
 })

@@ -12,7 +12,7 @@ const proxy = require('http-proxy-middleware')
 const cp = require('child_process')
 const javascriptObfuscator = require('gulp-javascript-obfuscator')
 const through = require('through2')
-const { medium: obfuscationOption } = require('./obfuscation-config.js')
+const { low: obfuscationOption } = require('./obfuscation-config.js')
 
 const paths = {
   dest: 'dist',
@@ -139,7 +139,7 @@ function htmlCompileBuild() {
 }
 
 function transformManifest(input) {
-  input.content_scripts[0].matches = ['https://admin.zhaosw.com']
+  // input.content_scripts[0].matches = ['https://admin.zhaosw.com']
   return input
 }
 

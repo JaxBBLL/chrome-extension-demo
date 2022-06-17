@@ -22,7 +22,8 @@
     "gulp-less": "^5.0.0",
     "gulp-plumber": "^1.2.1",
     "gulp-rename": "^2.0.0",
-    "http-proxy-middleware": "^2.0.6"
+    "http-proxy-middleware": "^2.0.6",
+    "through2": "^4.0.2"
   },
   "engines": {
     "node": ">= 8.11.1",
@@ -31,8 +32,5 @@
   "browserslist": [
     "last 4 versions",
     "Android >= 4.0"
-  ],
-  "dependencies": {
-    "through2": "^4.0.2"
-  }
+  ]
 }

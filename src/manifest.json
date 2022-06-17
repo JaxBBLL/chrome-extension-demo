@@ -1,6 +1,6 @@
 {
   "name": "爱采购登录工具",
-  "description": "Build an Extension!",
+  "description": "一个工具",
   "version": "0.0.1",
   "manifest_version": 3,
   "icons": {
@@ -14,8 +14,7 @@
       "16": "images/logo.png",
       "24": "images/logo.png",
       "32": "images/logo.png"
-    },
-    "default_popup": "index.html"
+    }
   },
   "background": {
     "service_worker": "script/background.js"

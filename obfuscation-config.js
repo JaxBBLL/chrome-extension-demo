@@ -30,6 +30,7 @@ module.exports = {
     stringArrayThreshold: 1,
     transformObjectKeys: true,
     unicodeEscapeSequence: false,
+    target: 'browser-no-eval',
   },
   // Medium obfuscation, optimal performance
   medium: {
@@ -63,6 +64,7 @@ module.exports = {
     stringArrayThreshold: 0.75,
     transformObjectKeys: true,
     unicodeEscapeSequence: false,
+    target: 'browser-no-eval',
   },
   // Low obfuscation, High performance
   low: {
@@ -91,6 +93,7 @@ module.exports = {
     stringArrayWrappersType: 'variable',
     stringArrayThreshold: 0.75,
     unicodeEscapeSequence: false,
+    target: 'browser-no-eval',
   },
   // Default preset, High performance
   default: {
@@ -120,5 +123,6 @@ module.exports = {
     stringArrayWrappersType: 'variable',
     stringArrayThreshold: 0.75,
     unicodeEscapeSequence: false,
+    target: 'browser-no-eval',
   },
 }
