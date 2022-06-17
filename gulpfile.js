@@ -12,6 +12,7 @@ const proxy = require('http-proxy-middleware')
 const cp = require('child_process')
 const javascriptObfuscator = require('gulp-javascript-obfuscator')
 const through = require('through2')
+const { medium: obfuscationOption } = require('./obfuscation-config.js')
 
 const paths = {
   dest: 'dist',
@@ -87,11 +88,7 @@ function script() {
 function scriptBuild() {
   return gulp
     .src(paths.script.src)
-    .pipe(
-      javascriptObfuscator({
-        debugProtection: true,
-      }),
-    )
+    .pipe(javascriptObfuscator(obfuscationOption))
     .pipe(gulp.dest(paths.script.dest))
     .pipe(connect.reload())
 }
@@ -159,7 +156,7 @@ function manifestCompile() {
           // transform json into desired shape
           const transformed = transformManifest(parsed)
           // make string from javascript obj
-          const stringified = JSON.stringify(transformed, null, 2)
+          const stringified = JSON.stringify(transformed)
           // make bufer from string and attach it as current file content
           file.contents = Buffer.from(stringified)
         }
