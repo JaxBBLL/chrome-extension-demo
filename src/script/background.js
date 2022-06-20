@@ -1,29 +1,42 @@
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  console.log('background', request)
-  if (request.type == 'INJECT_START') {
-    setCookies({
-      k1: 'a',
-      k2: 'b',
-    })
-    sendResponse({
-      type: request.type,
-      data: true,
-      message: '操作成功',
-    })
-  }
-  return true
-})
-
-function setCookies(cookies, url = 'https://www.baidu.com') {
-  for (let k in cookies) {
+const contentMessageStrategy = {
+  START() {
     chrome.cookies.set(
       {
-        name: k,
-        url: url,
-        value: cookies[k],
+        name: 'ZSSESSIONID',
+        url: 'http://member.y24.kucdn.cn',
+        domain: '.y24.kucdn.cn',
+        value: '4284c0ae-1eeb-4894-bdc3-659974db6aa3',
       },
-      function (cookie) {},
+      function (cookie) {
+        console.log(cookie)
+        chrome.tabs.create({ url: 'http://member.y24.kucdn.cn/biz/#/home' })
+      },
     )
-  }
-  // chrome.tabs.create({ url: 'https://www.jd.com' })
+  },
+  ACTION() {
+    helper()
+    function helper() {
+      fetch('https://www.zhaosw.com/product/detail/255435821')
+        .then((res) => res.text())
+        .then((res) => {
+          console.log(res)
+        })
+    }
+  },
 }
+
+const messageStrategy = {
+  content: contentMessageStrategy,
+}
+
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  console.log('background', request)
+  const { from, type } = request
+  messageStrategy[from][type]()
+  sendResponse({
+    type: type,
+    data: true,
+    message: '操作成功',
+  })
+  return true
+})

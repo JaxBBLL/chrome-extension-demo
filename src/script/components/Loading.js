@@ -1,12 +1,13 @@
-var wrapper = null;
+!(function () {
+  var wrapper = null
 
-function createWrapper() {
-  if (wrapper) {
-    return;
-  }
-  wrapper = document.createElement('section');
-  wrapper.style.cssText = `position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #fff; z-index: 100; display: none; justify-content: center; align-items: center; text-align: center;`;
-  wrapper.innerHTML = `<div class="loading">
+  function createWrapper() {
+    if (wrapper) {
+      return
+    }
+    wrapper = document.createElement('section')
+    wrapper.style.cssText = `position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #fff; z-index: 100; display: none; justify-content: center; align-items: center; text-align: center;`
+    wrapper.innerHTML = `<div class="loading">
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="80"
@@ -34,22 +35,23 @@ function createWrapper() {
     </path>
     </svg>
     <div class="text"></div>
-  </div>`;
-  wrapper = document.body.appendChild(wrapper);
-}
-
-var Loading = {
-  show: function show(text) {
-    createWrapper();
-    wrapper.querySelector('.text').textContent = text;
-    wrapper.style.display = 'flex';
-  },
-  hide: function() {
-    if (wrapper) {
-      wrapper.querySelector('.text').textContent = '';
-      wrapper.style.display = 'none';
-    }
+  </div>`
+    wrapper = document.body.appendChild(wrapper)
   }
-};
 
-export default Loading;
+  var Loading = {
+    show: function show(text) {
+      createWrapper()
+      wrapper.querySelector('.text').textContent = text
+      wrapper.style.display = 'flex'
+    },
+    hide: function () {
+      if (wrapper) {
+        wrapper.querySelector('.text').textContent = ''
+        wrapper.style.display = 'none'
+      }
+    },
+  }
+
+  window.Loading = Loading
+})()
