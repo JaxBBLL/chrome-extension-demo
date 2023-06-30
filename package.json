@@ -1,36 +1,22 @@
 {
-  "name": "gulp-simple",
-  "version": "1.0.0",
-  "description": "gulp simple",
-  "keywords": [],
-  "author": "JaxBBLL",
-  "license": "ISC",
+  "name": "chrome-extension",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development gulp",
-    "build": "cross-env NODE_ENV=production gulp build"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vue": "3.3.4"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3",
-    "del": "^6.1.1",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^8.0.0",
-    "gulp-connect": "^5.7.0",
-    "gulp-cssmin": "^0.2.0",
-    "gulp-file-include": "^2.3.0",
-    "gulp-htmlmin": "^5.0.1",
-    "gulp-javascript-obfuscator": "^1.1.6",
-    "gulp-less": "^5.0.0",
-    "gulp-plumber": "^1.2.1",
-    "gulp-rename": "^2.0.0",
-    "http-proxy-middleware": "^2.0.6",
-    "through2": "^4.0.2"
-  },
-  "engines": {
-    "node": ">= 8.11.1",
-    "npm": ">= 5.6.0"
-  },
-  "browserslist": [
-    "last 4 versions",
-    "Android >= 4.0"
-  ]
+    "@crxjs/vite-plugin": "1.0.14",
+    "@types/chrome": "0.0.239",
+    "@vitejs/plugin-vue": "4.1.0",
+    "typescript": "5.0.2",
+    "vite": "4.3.9",
+    "vue-tsc": "1.8.3"
+  }
 }
