@@ -16,8 +16,9 @@
   outline: none;
   border: none;
   cursor: pointer;
+  border-radius: 3px;
 }
 
 .e-button + .e-button {
-  margin-left: 15px;
+  margin-left: 10px;
 }

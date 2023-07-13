@@ -5,7 +5,7 @@ const oWrap = document.createElement("div");
 oWrap.classList.add("e-container");
 
 oWrap.innerHTML =
-  '<div><button class="e-button login" type="button">link</button><button class="e-button go" type="button">触发</button></div>';
+  '<div><button class="e-button login" type="button">Link to baidu</button><button class="e-button go" type="button">触发</button></div>';
 document.body.appendChild(oWrap);
 
 (oWrap.querySelector(".login") as Element).addEventListener("click", () => {

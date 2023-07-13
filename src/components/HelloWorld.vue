@@ -7,10 +7,15 @@ const count = ref(0);
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
-
-  <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
+  <div class="container mx-auto">
+    <h1>{{ msg }}</h1>
+    <button
+      class="px-2 py-1 rounded border border-blue-600 border-solid"
+      type="button"
+      @click="count++"
+    >
+      count is {{ count }}
+    </button>
   </div>
 </template>
 
