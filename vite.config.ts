@@ -2,8 +2,21 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import { crx } from "@crxjs/vite-plugin";
 import manifest from "./manifest.json"; // Node 14 & 16
+import autoImport from "unplugin-auto-import/vite";
 // import manifest from "./manifest.json" assert { type: "json" }; // Node >=17
 
 export default defineConfig({
-  plugins: [vue(), crx({ manifest })],
+  plugins: [
+    autoImport({
+      imports: [
+        "vue",
+        "vue-router",
+        {
+          vuex: ["useStore"],
+        },
+      ],
+    }),
+    vue(),
+    crx({ manifest }),
+  ],
 });
