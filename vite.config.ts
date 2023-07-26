@@ -19,4 +19,13 @@ export default defineConfig({
     vue(),
     crx({ manifest }),
   ],
+  build: {
+    rollupOptions: {
+      input: {
+        // 多页面入口配置
+        index: "src/main.ts",
+        option: "src/option.ts",
+      },
+    },
+  },
 });
